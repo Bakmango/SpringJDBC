@@ -7,27 +7,23 @@
 
 
 
-	<bean id="dataSource" 
-		  class="org.apache.commons.dbcp2.BasicDataSource"
-		  p:driverClassName="oracle.jdbc.driver.Oracle.Driver"
-		  p:url="jdbc:oracle:thin:@localhost:1521:XE"
-		  p:username="mire002"
-		  p:password="mire002"
-		  />
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp2.BasicDataSource"
+		p:driverClassName="oracle.jdbc.OracleDriver"
+		p:url="jdbc:oracle:thin:@localhost:1521:XE" p:username="mire002"
+		p:password="mire002" />
+		
 	<bean id="sqlSessionFactory"
-		  class="org.mybatis.spring.SqlSessionFactoryBean"
-		  p:dataSource-ref="dataSource"
-		  p:configLocation="classpath:com/spring/mybatis/comfig/sqlConfig.xml"
-		  p:mapperLocations="classpath:com/spring/mybatis/mappers/*-Mapper.xml"
-		  />
-	
+		class="org.mybatis.spring.SqlSessionFactoryBean"
+		p:dataSource-ref="dataSource"
+		p:configLocation="classpath:com/spring/mybatis/config/sqlConfig.xml"
+		p:mapperLocations="classpath:com/spring/mybatis/mappers/*-Mapper.xml" />
+
 	<bean id="sqlSession"
-		  class="org.mybatis.spring.SqlSessionTemplate"
-		  c:sqlSessionFactory-ref="sqlSessionFactory"
-		  />
-		  
+		class="org.mybatis.spring.SqlSessionTemplate"
+		c:sqlSessionFactory-ref="sqlSessionFactory" />
+
 	<bean id="transactionManager"
-		  class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
-		  p:dataSource-ref="dataSource"
-		  />
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		p:dataSource-ref="dataSource" />
 </beans>

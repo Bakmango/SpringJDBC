@@ -16,31 +16,29 @@ public class MemberDAOImpl implements MemberDAO{
 
 	@Override
 	public List<MemberVO> selectList() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		 return session.selectList("Member-Mapper.selectMemberList");
 	}
 
 	@Override
 	public MemberVO selectMemberById(String id) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne("Member-Mapper.selectMemberById",id);
 	}
 
 	@Override
 	public void insertMember(MemberVO member) throws SQLException {
-		// TODO Auto-generated method stub
+		session.insert("Member-Mapper.insertMember",member);
 		
 	}
 
 	@Override
 	public void updateMember(MemberVO member) throws SQLException {
-		// TODO Auto-generated method stub
+		session.update("Member-Mapper.updateMember",member);
 		
 	}
 
 	@Override
 	public void deleteMember(String id) throws SQLException {
-		// TODO Auto-generated method stub
+		session.delete("Member-Mapper.deleteMember",id);
 		
 	}
 	

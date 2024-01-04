@@ -9,8 +9,8 @@
  		select * from member
  	</select>
  	
- 	<select id="selectMemberById" resultType="member">
- 		select * from number
+ 	<select id="selectMemberById" parameterType="str" resultType="member">
+ 		select * from member
  		where id=#{id}
  	</select>
  	
