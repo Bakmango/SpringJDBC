@@ -99,7 +99,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- servlet.jsp-api -->
+		<!-- javax.servlet -->
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>javax.servlet.jsp-api</artifactId>
