@@ -18,50 +18,47 @@
 			where phone like '%'||#{keyword}||'%'
 		</if>
 	</sql>
-
 	<select id="selectSearchMemberList" parameterType="pageMaker"
-		resultType="member">
+			resultType="member">
 		select *
 		from member
 		<include refid="search" />
-		order by regDate desc
+		order by regDate desc		
 	</select>
-	<select id="selectSearchMemberListCount"
-		parameterType="pageMaker" resultType="int">
+	<select id="selectSearchMemberListCount" parameterType="pageMaker"
+			resultType="int">
 		select count(*)
 		from member
 		<include refid="search" />
-		order by regDate desc
 	</select>
-
+	
 	<select id="selectMemberList" resultType="member">
 		select * from member
-		where id=#{id}
 	</select>
-
-	<select id="selectMemberById" parameterType="str"
-		resultType="member">
+	
+	<select id="selectMemberById" resultType="member">
 		select * from member
 		where id=#{id}
 	</select>
-
+	
 	<insert id="insertMember" parameterType="member">
-		insert into
-		member(id,
-		pwd, email, phone, picture, name, authority)
-		values(#{id}, #{pwd},
-		#{email}, #{phone}, #{picture}, #{name}, #{authority})
+		insert into 
+		member(id, pwd, email, phone,picture,name,authority)
+		values(#{id}, #{pwd}, #{email}, #{phone},#{picture},#{name},#{authority})
 	</insert>
 	<update id="updateMember" parameterType="member">
-		update member
-		set
+		update member 
+		set 
 		pwd=#{pwd},email=#{email},phone=#{phone},name=#{name},
 		picture=#{picture}
 		where id=#{id}
 	</update>
 	<delete id="deleteMember" parameterType="str">
 		delete from member
-		where
-		id=#{id}
+		where id=#{id}
 	</delete>
 </mapper>
+
+
+
+

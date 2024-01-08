@@ -8,15 +8,15 @@ import org.apache.ibatis.session.SqlSession;
 import com.spring.dto.MemberVO;
 
 public class MemberDAOImpl implements MemberDAO{
-	
-	private SqlSession session;
-	public void setSqlSession(SqlSession session) {
-		this.session=session;
-	}
 
+	private SqlSession session;
+	public void setSqlSession(SqlSession session){
+		this.session = session;
+	}
+	
 	@Override
 	public List<MemberVO> selectList() throws SQLException {
-		 return session.selectList("Member-Mapper.selectMemberList");
+		return session.selectList("Member-Mapper.selectMemberList");
 	}
 
 	@Override
@@ -41,7 +41,5 @@ public class MemberDAOImpl implements MemberDAO{
 		session.delete("Member-Mapper.deleteMember",id);
 		
 	}
-	
-	
 
 }

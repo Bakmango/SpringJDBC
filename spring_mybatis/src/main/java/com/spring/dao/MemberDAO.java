@@ -12,5 +12,5 @@ public interface MemberDAO {
 	void insertMember(MemberVO member)throws SQLException;
 	void updateMember(MemberVO member)throws SQLException;
 	void deleteMember(String id)throws SQLException;
-
+	
 }
